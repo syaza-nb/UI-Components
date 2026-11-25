@@ -8,17 +8,23 @@ export const buttonStyles = recipe({
     alignItems: "center",
     justifyContent: "center",
     gap: "8px",
+
     border: "1px solid transparent",
     borderRadius: vars.radius.md,
+
+    fontFamily: "inherit",
     fontWeight: 600,
+    textDecoration: "none",
+    whiteSpace: "nowrap",
+
     cursor: "pointer",
     transition: "all 0.2s ease",
-    whiteSpace: "nowrap",
 
     selectors: {
       "&:disabled": {
         opacity: 0.5,
         cursor: "not-allowed",
+        pointerEvents: "none",
       },
 
       "&:focus-visible": {
@@ -45,38 +51,65 @@ export const buttonStyles = recipe({
         backgroundColor: vars.color.surface,
         color: vars.color.text,
         borderColor: vars.color.border,
+
+        selectors: {
+          "&:hover:not(:disabled)": {
+            backgroundColor: vars.color.border,
+          },
+        },
       },
 
       outline: {
         backgroundColor: "transparent",
         color: vars.color.primary,
         borderColor: vars.color.primary,
+
+        selectors: {
+          "&:hover:not(:disabled)": {
+            backgroundColor: `${vars.color.primary}10`,
+          },
+        },
       },
 
       destructive: {
         backgroundColor: vars.color.danger,
         color: "#FFFFFF",
+
+        selectors: {
+          "&:hover:not(:disabled)": {
+            backgroundColor: "#B91C1C",
+          },
+        },
       },
 
       ghost: {
         backgroundColor: "transparent",
         color: vars.color.text,
+
+        selectors: {
+          "&:hover:not(:disabled)": {
+            backgroundColor: vars.color.surface,
+          },
+        },
       },
     },
 
     size: {
       sm: {
+        minHeight: "32px",
         padding: "6px 12px",
         fontSize: "12px",
       },
 
       md: {
+        minHeight: "40px",
         padding: "10px 16px",
         fontSize: "14px",
       },
 
       lg: {
-        padding: "14px 20px",
+        minHeight: "48px",
+        padding: "12px 20px",
         fontSize: "16px",
       },
     },
@@ -85,6 +118,7 @@ export const buttonStyles = recipe({
       true: {
         width: "100%",
       },
+
       false: {
         width: "auto",
       },
